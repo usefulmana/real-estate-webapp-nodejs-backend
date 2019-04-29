@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
-let config = require('config');
+const config = require('config');
 
 const uri = config.get('uri');
 mongoose.connect(uri, () => {
   console.log('Successfully connect to database');
 });
 
-let UserSchema = mongoose.Schema(
+const UserSchema = mongoose.Schema(
   {
     name: {
       type: String,
@@ -20,6 +20,12 @@ let UserSchema = mongoose.Schema(
     password: {
       type: String,
       require: true
+    },
+    phone: {
+      type: String
+    },
+    avatar: {
+      type: String
     },
     registerDate: {
       type: Date,

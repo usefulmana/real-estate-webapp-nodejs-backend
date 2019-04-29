@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 const Project = require('./project.model');
 const User = require('./user.model');
-let config = require('config');
+const config = require('config');
 
 const uri = config.get('uri');
 mongoose.connect(uri, () => {
   console.log('Successfully connect to database');
 });
 
-let PropertySchema = new mongoose.Schema(
+const PropertySchema = new mongoose.Schema(
   {
     title: {
       type: String,
@@ -32,8 +32,7 @@ let PropertySchema = new mongoose.Schema(
     endDate: {
       type: Date
     },
-    imageURL: [{type:String}]
-    ,
+    imageURL: [{ type: String }],
     project: { type: mongoose.Schema.Types.ObjectId, ref: 'Project' },
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
   },

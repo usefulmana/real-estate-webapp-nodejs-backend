@@ -1,8 +1,10 @@
-let PropertyModel = require('../models/property.model');
+const PropertyModel = require('../models/property.model');
 
-let express = require('express');
+const express = require('express');
 
-let router = express.Router();
+const router = express.Router();
+
+const auth = require('../../middleware/auth');
 
 // POST NEW PROPERTY
 router.post('/property', (req, res) => {
@@ -44,15 +46,18 @@ router.get('/property/byId/:id', (req, res) => {
 });
 
 // GET BY ADDRESS
-router.get('/property/byAddress/:address',(req,res) => {
-    console.log(req)
-    PropertyModel.find({address: {'$regex': req.params.address, '$options':'i'}}, (err,properties) =>{
-        if(err){
-            res.send('Something is wrong')
-        }
-        res.json(properties)
-    })
-})
+router.get('/property/byAddress/:address', (req, res) => {
+  console.log(req);
+  PropertyModel.find(
+    { address: { $regex: req.params.address, $options: 'i' } },
+    (err, properties) => {
+      if (err) {
+        res.send('Something is wrong');
+      }
+      res.json(properties);
+    }
+  );
+});
 
 // DELETE A PROPERTY by ID
 router.delete('/property/:id', (req, res) => {
@@ -66,11 +71,16 @@ router.delete('/property/:id', (req, res) => {
 
 // UPDATE A PROPERTY
 router.put('/property/:id', (req, res) => {
-  PropertyModel.findByIdAndUpdate({ _id: req.params.id },{$set:req.body}, {new : true},(err, properties) => {
-    if (err) {
-      res.send('Something is wrong');
+  PropertyModel.findByIdAndUpdate(
+    { _id: req.params.id },
+    { $set: req.body },
+    { new: true },
+    (err, properties) => {
+      if (err) {
+        res.send('Something is wrong');
+      }
+      res.json(properties);
     }
-    res.json(properties);
-  });
+  );
 });
 module.exports = router;

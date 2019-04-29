@@ -1,8 +1,10 @@
-let ProjectModel = require('../models/project.model');
+const ProjectModel = require('../models/project.model');
 
-let express = require('express');
+const express = require('express');
 
-let router = express.Router();
+const router = express.Router();
+
+const auth = require('../../middleware/auth')
 
 // ADD NEW PROJECT
 router.post('/project', (req, res) => {

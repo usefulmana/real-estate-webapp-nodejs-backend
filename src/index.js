@@ -1,18 +1,20 @@
-let express = require('express');
+const express = require('express');
 
-let app = express();
+const app = express();
 
-let path = require('path');
+const path = require('path');
 
-let cors = require('cors');
+const cors = require('cors');
 
-let bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 
-let propertyRoute = require('./routes/property');
+const propertyRoute = require('./routes/property');
 
-let projectRoute = require('./routes/project')
+const projectRoute = require('./routes/project');
 
-let userRoute = require('./routes/user')
+const userRoute = require('./routes/user');
+
+const authRoute = require('./routes/auth');
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -26,6 +28,8 @@ app.use(propertyRoute);
 app.use(projectRoute);
 
 app.use(userRoute);
+
+app.use(authRoute);
 
 app.use(express.static('public'));
 
