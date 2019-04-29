@@ -4,6 +4,13 @@ Author: Nguyen Le Bao Anh <br>
 RMIT Vietnam - Web Programming - Assignment III <br>
 Repository: [Github](https://github.com/usefulmana/real-estate-webapp-nodejs-backend)
 
+
+### Deployments <br>
+
+- Backend REST APIs: zeit.co
+- Database: MongoDB Atlas
+- React application: Heroku
+
 ### API Endpoints <br>
 
 With the exception of Property and Project APIs GET endpoints, all other endpoints are private meaning they require authentication to be used.
