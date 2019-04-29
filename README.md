@@ -7,7 +7,7 @@ Repository: [Github](https://github.com/usefulmana/real-estate-webapp-nodejs-bac
 
 ### Deployments <br>
 
-- Backend REST APIs: zeit.co
+- Backend REST APIs: Heroku
 - Database: MongoDB Atlas
 - React application: Heroku
 
@@ -15,37 +15,41 @@ Repository: [Github](https://github.com/usefulmana/real-estate-webapp-nodejs-bac
 
 With the exception of Property and Project APIs GET endpoints, all other endpoints are private meaning they require authentication to be used.
 
-**For Properties**
+**For Properties** <br>
+
 | Method  | Endpoints   | Purpose  |   
 |---|---|---|
-| GET  | http://localhost:3000/property  | Get all properties  |  
-| GET | http://localhost:3000/property/byId/id  |  Get a property by ID | 
-| GET  | http://localhost:3000/property/byAddress/address  | Get properties by name | 
-| POST  | http://localhost:3000/property  | Add a property  | 
-| DEL  | http://localhost:3000/property/id  |  Delete a property | 
-| PUT | http://localhost:3000/property/id  | Update a property | 
+| GET  | https://express-estate.herokuapp.com/property  | Get all properties  |  
+| GET | https://express-estate.herokuapp.com/byId/id  |  Get a property by ID | 
+| GET  | https://express-estate.herokuapp.com/byAddress/address  | Get properties by name | 
+| POST  | https://express-estate.herokuapp.com/property  | Add a property  | 
+| DEL  | https://express-estate.herokuapp.com/property/id  |  Delete a property | 
+| PUT | https://express-estate.herokuapp.com/property/id  | Update a property | 
  
- **For Projects**
+ **For Projects** <br>
+
 | Method  | Endpoints   | Purpose  |   
 |---|---|---|
-| GET  |http://localhost:3000/project  |  Get all projects |  
-| GET | http://localhost:3000/property/byId/id  |  Get a project by ID | 
-| GET  |http://localhost:3000/project/byAddress/address   | Get projects by name  | 
-| POST  | http://localhost:3000/project  | Add a project  | 
-| DEL  | http://localhost:3000/project/id |  Delete a project | 
-| PUT | http://localhost:3000/project/id  |  Update a project | 
+| GET  |https://express-estate.herokuapp.comproject  |  Get all projects |  
+| GET | https://express-estate.herokuapp.comproperty/byId/id  |  Get a project by ID | 
+| GET  |https://express-estate.herokuapp.comproject/byAddress/address   | Get projects by name  | 
+| POST  | https://express-estate.herokuapp.com/project  | Add a project  | 
+| DEL  | https://express-estate.herokuapp.com/project/id |  Delete a project | 
+| PUT | https://express-estate.herokuapp.com/project/id  |  Update a project | 
 
  **For User Accounts** <br>
+
 *Additional header: x-auth-token*
  | Method  | Endpoints   | Purpose  |   
 |---|---|---|
-| GET  | http://localhost:3000/user/id  | Get a user by ID  |  
-| GET |  http://localhost:3000/auth/user  | Get a user's information by web token |  
-| POST  | http://localhost:3000/user  | Create a new user  | 
-| POST  | http://localhost:3000/auth  | Login Authentication  | 
-| PUT | http://localhost:3000/user/id  | Update a user's information  | 
+| GET  | https://express-estate.herokuapp.com/user/id  | Get a user by ID  |  
+| GET |  https://express-estate.herokuapp.com/auth/user  | Get a user's information by web token |  
+| POST  | https://express-estate.herokuapp.com/user  | Create a new user  | 
+| POST  | https://express-estate.herokuapp.com/auth  | Login Authentication  | 
+| PUT | https://express-estate.herokuapp.com/user/id  | Update a user's information  | 
 
-### Pre-made User Accounts
+### Pre-made User Accounts <br>
+
 |  Email | Password  |
 |---|---|
 |   |   |
