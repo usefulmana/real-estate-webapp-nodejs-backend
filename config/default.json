@@ -1,0 +1,4 @@
+{
+    "uri": "mongodb+srv://usefulmana:GAtech321@wpcluster-akxff.gcp.mongodb.net/webprogramming?retryWrites=true",
+    "jwtSecret": "sl_myJwtSecret"
+}
