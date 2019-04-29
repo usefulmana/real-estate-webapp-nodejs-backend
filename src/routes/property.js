@@ -65,9 +65,8 @@ router.delete('/property/:id', (req, res) => {
 });
 
 // UPDATE A PROPERTY
-// TODO Finish this
 router.put('/property/:id', (req, res) => {
-  PropertyModel.findByIdAndUpdate({ _id: req.params.id }, (err, properties) => {
+  PropertyModel.findByIdAndUpdate({ _id: req.params.id },{$set:req.body}, {new : true},(err, properties) => {
     if (err) {
       res.send('Something is wrong');
     }

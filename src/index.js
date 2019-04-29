@@ -4,18 +4,28 @@ let app = express();
 
 let path = require('path');
 
+let cors = require('cors');
+
 let bodyParser = require('body-parser');
 
 let propertyRoute = require('./routes/property');
 
-app.use(bodyParser.json());
+let projectRoute = require('./routes/project')
 
+let userRoute = require('./routes/user')
+
+app.use(bodyParser.json());
+app.use(cors());
 app.use((req, res, next) => {
   console.log(`${new Date().toString()} = ${req.originalUrl}`, req.body);
   next();
 });
 
 app.use(propertyRoute);
+
+app.use(projectRoute);
+
+app.use(userRoute);
 
 app.use(express.static('public'));
 
