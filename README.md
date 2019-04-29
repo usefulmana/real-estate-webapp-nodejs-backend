@@ -38,8 +38,8 @@ With the exception of Property and Project APIs GET endpoints, all other endpoin
 | PUT | https://express-estate.herokuapp.com/project/id  |  Update a project | 
 
  **For User Accounts** <br>
-
 *Additional header: x-auth-token*
+
  | Method  | Endpoints   | Purpose  |   
 |---|---|---|
 | GET  | https://express-estate.herokuapp.com/user/id  | Get a user by ID  |  
