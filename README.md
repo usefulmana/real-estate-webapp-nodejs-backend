@@ -20,8 +20,8 @@ With the exception of Property and Project APIs GET endpoints, all other endpoin
 | Method  | Endpoints   | Purpose  |   
 |---|---|---|
 | GET  | https://express-estate.herokuapp.com/property  | Get all properties  |  
-| GET | https://express-estate.herokuapp.com/byId/id  |  Get a property by ID | 
-| GET  | https://express-estate.herokuapp.com/byAddress/address  | Get properties by name | 
+| GET | https://express-estate.herokuapp.com/property/byId/id  |  Get a property by ID | 
+| GET  | https://express-estate.herokuapp.com/property/byAddress/address  | Get properties by name | 
 | POST  | https://express-estate.herokuapp.com/property  | Add a property  | 
 | DEL  | https://express-estate.herokuapp.com/property/id  |  Delete a property | 
 | PUT | https://express-estate.herokuapp.com/property/id  | Update a property | 
@@ -31,8 +31,8 @@ With the exception of Property and Project APIs GET endpoints, all other endpoin
 | Method  | Endpoints   | Purpose  |   
 |---|---|---|
 | GET  |https://express-estate.herokuapp.com/project  |  Get all projects |  
-| GET | https://express-estate.herokuapp.comproperty/byId/id  |  Get a project by ID | 
-| GET  |https://express-estate.herokuapp.comproject/byName/name   | Get projects by name  | 
+| GET | https://express-estate.herokuapp.com/project/byId/id  |  Get a project by ID | 
+| GET  |https://express-estate.herokuapp.com/project/byName/name   | Get projects by name  | 
 | POST  | https://express-estate.herokuapp.com/project  | Add a project  | 
 | DEL  | https://express-estate.herokuapp.com/project/id |  Delete a project | 
 | PUT | https://express-estate.herokuapp.com/project/id  |  Update a project | 
