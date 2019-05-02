@@ -30,7 +30,7 @@ With the exception of Property and Project APIs GET endpoints, all other endpoin
 
 | Method  | Endpoints   | Purpose  |   
 |---|---|---|
-| GET  |https://express-estate.herokuapp.comproject  |  Get all projects |  
+| GET  |https://express-estate.herokuapp.com/project  |  Get all projects |  
 | GET | https://express-estate.herokuapp.comproperty/byId/id  |  Get a project by ID | 
 | GET  |https://express-estate.herokuapp.comproject/byAddress/address   | Get projects by name  | 
 | POST  | https://express-estate.herokuapp.com/project  | Add a project  | 
