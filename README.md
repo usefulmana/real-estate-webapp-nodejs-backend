@@ -32,7 +32,7 @@ With the exception of Property and Project APIs GET endpoints, all other endpoin
 |---|---|---|
 | GET  |https://express-estate.herokuapp.com/project  |  Get all projects |  
 | GET | https://express-estate.herokuapp.comproperty/byId/id  |  Get a project by ID | 
-| GET  |https://express-estate.herokuapp.comproject/byAddress/address   | Get projects by name  | 
+| GET  |https://express-estate.herokuapp.comproject/byName/name   | Get projects by name  | 
 | POST  | https://express-estate.herokuapp.com/project  | Add a project  | 
 | DEL  | https://express-estate.herokuapp.com/project/id |  Delete a project | 
 | PUT | https://express-estate.herokuapp.com/project/id  |  Update a project | 
