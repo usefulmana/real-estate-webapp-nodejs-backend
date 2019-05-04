@@ -1,7 +1,7 @@
 {
   "name": "back-end-nodejs",
   "version": "1.0.0",
-  "description": "Deployment: - Database: MongoDB Atlas - NodeJS Backend: zeit.co  - React frontend: heroku",
+  "description": "MERN Real-estate Web Application",
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",

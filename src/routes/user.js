@@ -8,12 +8,16 @@ const router = express.Router();
 // ADD NEW USER
 router.post('/user', (req, res) => {
   const { name, email, password, phone } = req.body;
-
+  var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  var phoneRegex = /^\d{10}$/;
   // Validation
   if (!name || !email || !password || !phone) {
     return res.status(400).json({ msg: 'Please enter all fields' });
   }
-
+  if (!email.match(emailRegex))
+    return res.status(400).json({ msg: 'Please enter a valid email address' });
+  if (!phone.match(phoneRegex))
+    return res.status(400).json({ msg: 'Please enter a valid phone number! 10 consecutive numbers only!' });
   // Check for existing user
   UserModel.findOne({ email }).then(user => {
     if (user)
@@ -24,7 +28,8 @@ router.post('/user', (req, res) => {
     const newUser = new UserModel({
       name,
       email,
-      password
+      password,
+      phone
     });
 
     // Encrypt password before storage
