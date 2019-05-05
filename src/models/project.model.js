@@ -30,7 +30,7 @@ const ProjectSchema = new mongoose.Schema(
     endYear: {
       type: String
     },
-    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'users' }
   },
   { versionKey: false }
 );

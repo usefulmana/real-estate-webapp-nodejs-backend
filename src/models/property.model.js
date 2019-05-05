@@ -33,8 +33,8 @@ const PropertySchema = new mongoose.Schema(
       type: Date
     },
     imageURL: [{ type: String }],
-    project: { type: mongoose.Schema.Types.ObjectId, ref: 'Project' },
-    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
+    project: { type: mongoose.Schema.Types.ObjectId, ref: 'projects' },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'users' }
   },
   { versionKey: false }
 );

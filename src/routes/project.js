@@ -7,7 +7,7 @@ const router = express.Router();
 const auth = require('../../middleware/auth')
 
 // ADD NEW PROJECT
-router.post('/project', auth,(req, res) => {
+router.post('/project', (req, res) => {
   if (!req.body) {
     return res.status(400).send('Bad request! Body is missing');
   }
