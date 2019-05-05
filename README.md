@@ -49,12 +49,13 @@ With the exception of Property and Project APIs GET endpoints, all other endpoin
 | PUT | https://express-estate.herokuapp.com/user/id  | Update a user's information  | 
 
 ### Pre-made User Accounts <br>
-
 |  Email | Password  |
 |---|---|
-|   |   |
-|   |   |
-|   |   |
+| rmit@gmail.com  |  123456 |
+| rmit1@gmail.com  | 123456  |
+| rmit2@gmail.com | 123456  |
+| rmit3@gmail.com | 123456  |
+| rmit4@gmail.com | 123456  |
 
 
 ### Dependencies

@@ -7,7 +7,7 @@ const router = express.Router();
 const auth = require('../../middleware/auth')
 
 // ADD NEW PROJECT
-router.post('/project', (req, res) => {
+router.post('/project', auth,(req, res) => {
   if (!req.body) {
     return res.status(400).send('Bad request! Body is missing');
   }
@@ -59,7 +59,7 @@ router.get('/project/byName/:name', (req, res) => {
 });
 
 // DELETE A PROPERTY by ID
-router.delete('/project/:id', (req, res) => {
+router.delete('/project/:id', auth,(req, res) => {
   ProjectModel.findByIdAndDelete({ _id: req.params.id }, (err, properties) => {
     if (err) {
       res.send('Something is wrong');
@@ -69,7 +69,7 @@ router.delete('/project/:id', (req, res) => {
 });
 
 // UPDATE A PROJECT
-router.put('/project/:id', (req, res) => {
+router.put('/project/:id', auth,(req, res) => {
   ProjectModel.findByIdAndUpdate(
     { _id: req.params.id },
     { $set: req.body },

@@ -7,7 +7,7 @@ const router = express.Router();
 const auth = require('../../middleware/auth');
 
 // POST NEW PROPERTY
-router.post('/property', (req, res) => {
+router.post('/property', auth, (req, res) => {
   if (!req.body) {
     return res.status(400).send('Bad request! Body is missing');
   }
@@ -60,7 +60,7 @@ router.get('/property/byAddress/:address', (req, res) => {
 });
 
 // DELETE A PROPERTY by ID
-router.delete('/property/:id', (req, res) => {
+router.delete('/property/:id', auth,(req, res) => {
   PropertyModel.findByIdAndDelete({ _id: req.params.id }, (err, properties) => {
     if (err) {
       res.send('Something is wrong');
@@ -70,7 +70,7 @@ router.delete('/property/:id', (req, res) => {
 });
 
 // UPDATE A PROPERTY
-router.put('/property/:id', (req, res) => {
+router.put('/property/:id',auth, (req, res) => {
   PropertyModel.findByIdAndUpdate(
     { _id: req.params.id },
     { $set: req.body },
