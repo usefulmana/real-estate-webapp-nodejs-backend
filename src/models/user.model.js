@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const config = require('config');
 
 const uri = config.get('uri');
-mongoose.connect(uri, () => {
+mongoose.connect(uri, { useNewUrlParser: true },() => {
   console.log('Successfully connect to database');
 });
 
@@ -25,7 +25,8 @@ const UserSchema = mongoose.Schema(
       type: String
     },
     avatar: {
-      type: String
+      type: String,
+      default: 'https://avatars2.githubusercontent.com/u/464297?s=460&v=4'
     },
     registerDate: {
       type: Date,

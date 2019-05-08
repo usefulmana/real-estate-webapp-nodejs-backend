@@ -4,7 +4,7 @@ const User = require('./user.model');
 const config = require('config');
 
 const uri = config.get('uri');
-mongoose.connect(uri, () => {
+mongoose.connect(uri, { useNewUrlParser: true },() => {
   console.log('Successfully connect to database');
 });
 

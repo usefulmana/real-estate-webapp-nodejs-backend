@@ -1,5 +1,5 @@
 const PropertyModel = require('../models/property.model');
-
+const UserModel = require('../models/user.model');
 const express = require('express');
 
 const router = express.Router();
@@ -45,6 +45,24 @@ router.get('/property/byId/:id', (req, res) => {
   });
 });
 
+// // GET POSTER
+// router.get('/property/post/:id', (req, res) => {
+//   PropertyModel.findById({ _id: req.params.id }, (err, properties) => {
+//     if (err) {
+//       res.send('Something is wrong');
+//     }
+//     console.log(res.json(properties))
+//     // router.get('/user/' + properties.user, res => {
+//     //   UserModel.findById({ _id: properties.user }, (err, properties) => {
+//     //     if (err) {
+//     //       res.send('Something is wrong');
+//     //     }
+//     //     res.json(properties);
+//     //   });
+//     // });
+//   });
+// });
+
 // GET BY ADDRESS
 router.get('/property/byAddress/:address', (req, res) => {
   console.log(req);
@@ -60,7 +78,7 @@ router.get('/property/byAddress/:address', (req, res) => {
 });
 
 // DELETE A PROPERTY by ID
-router.delete('/property/:id', auth,(req, res) => {
+router.delete('/property/:id', auth, (req, res) => {
   PropertyModel.findByIdAndDelete({ _id: req.params.id }, (err, properties) => {
     if (err) {
       res.send('Something is wrong');
@@ -70,7 +88,7 @@ router.delete('/property/:id', auth,(req, res) => {
 });
 
 // UPDATE A PROPERTY
-router.put('/property/:id',auth, (req, res) => {
+router.put('/property/:id', auth, (req, res) => {
   PropertyModel.findByIdAndUpdate(
     { _id: req.params.id },
     { $set: req.body },

@@ -6,7 +6,7 @@ const config = require('config');
 const router = express.Router();
 const auth = require('../../middleware/auth')
 
-// ADD NEW USER
+// LOGIN
 router.post('/auth', (req, res) => {
   const { email, password } = req.body;
 

@@ -17,11 +17,9 @@ router.post('/user', (req, res) => {
   if (!email.match(emailRegex))
     return res.status(400).json({ msg: 'Please enter a valid email address' });
   if (!phone.match(phoneRegex))
-    return res
-      .status(400)
-      .json({
-        msg: 'Please enter a valid phone number! 10 consecutive numbers only!'
-      });
+    return res.status(400).json({
+      msg: 'Please enter a valid phone number! 10 consecutive numbers only!'
+    });
   // Check for existing user
   UserModel.findOne({ email }).then(user => {
     if (user)
@@ -65,7 +63,7 @@ router.post('/user', (req, res) => {
 });
 
 //  GET USER BY ID
-router.get('/user/:id', auth, (req, res) => {
+router.get('/user/:id', (req, res) => {
   UserModel.findById({ _id: req.params.id }, (err, properties) => {
     if (err) {
       res.send('Something is wrong');
@@ -78,25 +76,24 @@ router.get('/user/:id', auth, (req, res) => {
 router.put('/user/:id', auth, (req, res) => {
   const { name, email, password, phone } = req.body;
   // Validation
-  if (!name || !email || !password || !phone) {
+  if (!name || !email || !phone) {
     return res.status(400).json({ msg: 'Please enter all fields' });
   }
-
-  bcrypt.hash(req.body.password, 10, (err, hash) => {
-    if (err) throw err;
-    req.body.password = hash;
-    UserModel.findByIdAndUpdate(
-      { _id: req.params.id },
-      { $set: req.body },
-      { new: true },
-      (err, properties) => {
-        if (err) {
-          res.send('Something is wrong');
-        }
-        res.json(properties);
+  UserModel.findByIdAndUpdate(
+    { _id: req.params.id },
+    { $set: req.body },
+    { new: true },
+    (err, properties) => {
+      if (err) {
+        res.send('Something is wrong');
       }
-    );
-  });
+      res.json(properties);
+    }
+  );
+  // bcrypt.hash(req.body.password, 10, (err, hash) => {
+  //   if (err) throw err;
+  //   req.body.password = hash;
+  // });
 });
 
 module.exports = router;
