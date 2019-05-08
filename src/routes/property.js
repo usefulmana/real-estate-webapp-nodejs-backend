@@ -36,15 +36,24 @@ router.get('/property', (req, res) => {
 });
 
 // GET BY ID
-router.get('/property/byId/:id', (req, res) => {
-  PropertyModel.findById({ _id: req.params.id }, (err, properties) => {
-    if (err) {
-      res.send('Something is wrong');
-    }
-    res.json(properties);
-  });
-});
+// router.get('/property/byId/:id', (req, res) => {
+//   PropertyModel.findById({ _id: req.params.id }, (err, properties) => {
+//     if (err) {
+//       res.send('Something is wrong');
+//     }
+//     res.json(properties);
+//   });
+// });
 
+// GET BY ID
+router.get('/property/byId/:id', (req, res) => {
+  PropertyModel.findById({ _id: req.params.id }).populate('user','name email phone avatar').populate('project', 'name owner').exec((err, user)=>{
+    if(err){
+      res.send('Something is wronng')
+    }
+    res.json(user)
+  })
+});
 // // GET POSTER
 // router.get('/property/post/:id', (req, res) => {
 //   PropertyModel.findById({ _id: req.params.id }, (err, properties) => {
