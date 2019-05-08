@@ -65,9 +65,14 @@ router.get('/property/byId/:id', (req, res) => {
 
 // GET BY ADDRESS
 router.get('/property/byAddress/:address', (req, res) => {
-  console.log(req);
   PropertyModel.find(
-    { address: { $regex: req.params.address, $options: 'i' } },
+    {
+      $or: [
+        { address: { $regex: req.params.address, $options: 'i' } },
+        { city: { $regex: req.params.address, $options: 'i' } },
+        { province: { $regex: req.params.address, $options: 'i' } }
+      ]
+    },
     (err, properties) => {
       if (err) {
         res.send('Something is wrong');

@@ -34,9 +34,12 @@ const PropertySchema = new mongoose.Schema(
       type: Number,
       require: true
     },
-    area: Number,
-    numOfBedrooms: Number,
-    numOfBathrooms: Number,
+    area: {
+      type:Number,
+      require:true,
+      default:0},
+    numOfBedrooms: {type: Number, default:0},
+    numOfBathrooms: {type: Number, default:0},
     direction: String,
     address: {
       type: String,
