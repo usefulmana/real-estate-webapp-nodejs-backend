@@ -2,7 +2,8 @@
 
 Author: Nguyen Le Bao Anh <br>
 RMIT Vietnam - Web Programming - Assignment III <br>
-Repository: [Github](https://github.com/usefulmana/real-estate-webapp-nodejs-backend)
+Website: [Link](https://react-real-estate-wp.herokuapp.com)
+Repository: [Github](https://github.com/usefulmana/real-estate-webapp-react-frontend)
 
 
 ### Deployments <br>
@@ -10,6 +11,21 @@ Repository: [Github](https://github.com/usefulmana/real-estate-webapp-nodejs-bac
 - Backend REST APIs: Heroku
 - Database: MongoDB Atlas
 - React application: Heroku
+
+### To Start Locally <br>
+- This project is divided into two folders one for front-end and one for back end.
+- Install packages on each folder by using **npm install**
+- Start each folder by entering **npm start**
+  
+### Pre-made User Accounts <br>
+
+|  Email | Password  |
+|---|---|
+| rmit@gmail.com  |  123456 |
+| rmit1@gmail.com  | 123456  |
+| rmit2@gmail.com | 123456  |
+| rmit3@gmail.com | 123456  |
+| rmit4@gmail.com | 123456  |
 
 ### API Endpoints <br>
 
@@ -48,16 +64,6 @@ With the exception of Property and Project APIs GET endpoints, all other endpoin
 | POST  | https://express-estate.herokuapp.com/auth  | Login Authentication  | 
 | PUT | https://express-estate.herokuapp.com/user/id  | Update a user's information  | 
 
-### Pre-made User Accounts <br>
-|  Email | Password  |
-|---|---|
-| rmit@gmail.com  |  123456 |
-| rmit1@gmail.com  | 123456  |
-| rmit2@gmail.com | 123456  |
-| rmit3@gmail.com | 123456  |
-| rmit4@gmail.com | 123456  |
-
-
 ### Dependencies
  - bcrypt
  - body-parser
@@ -67,3 +73,11 @@ With the exception of Property and Project APIs GET endpoints, all other endpoin
  - express
  - mongoose
  - jsonwebtoken
+
+ ### Assumptions
+- When creating an ad, post date and expiration date (90 days after post date) is automatically determined recorded by the database.
+
+### Report
+- I used a token-based authentication system for this project which is provided by a library called jsonwebtoken. This library is chosen because it is powerful and relatively easy to use. 
+- Each user upon login or register will be granted a token which will be stored in session storage for security reason. When logging out or closing the tab, the token will be deleted.
+- Each user can only CRUD their own ads and projects.
