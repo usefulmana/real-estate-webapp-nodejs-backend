@@ -47,12 +47,15 @@ router.get('/property', (req, res) => {
 
 // GET BY ID
 router.get('/property/byId/:id', (req, res) => {
-  PropertyModel.findById({ _id: req.params.id }).populate('user','name email phone avatar').populate('project', 'name owner').exec((err, user)=>{
-    if(err){
-      res.send('Something is wronng')
-    }
-    res.json(user)
-  })
+  PropertyModel.findById({ _id: req.params.id })
+    .populate('user', 'name email phone avatar')
+    .populate('project', 'name owner')
+    .exec((err, user) => {
+      if (err) {
+        res.send('Something is wronng');
+      }
+      res.json(user);
+    });
 });
 // // GET POSTER
 // router.get('/property/post/:id', (req, res) => {
@@ -73,22 +76,31 @@ router.get('/property/byId/:id', (req, res) => {
 // });
 
 // GET BY ADDRESS
-router.get('/property/byAddress/:address', (req, res) => {
-  PropertyModel.find(
-    {
-      $or: [
-        { address: { $regex: req.params.address, $options: 'i' } },
-        { city: { $regex: req.params.address, $options: 'i' } },
-        { province: { $regex: req.params.address, $options: 'i' } }
-      ]
-    },
-    (err, properties) => {
+router.get('/property/byAddress/:address?', (req, res) => {
+  if (!req.params.address) {
+    PropertyModel.find({}, (err, properties) => {
       if (err) {
         res.send('Something is wrong');
       }
       res.json(properties);
-    }
-  );
+    });
+  } else {
+    PropertyModel.find(
+      {
+        $or: [
+          { address: { $regex: req.params.address, $options: 'i' } },
+          { city: { $regex: req.params.address, $options: 'i' } },
+          { province: { $regex: req.params.address, $options: 'i' } }
+        ]
+      },
+      (err, properties) => {
+        if (err) {
+          res.send('Something is wrong');
+        }
+        res.json(properties);
+      }
+    );
+  }
 });
 
 // DELETE A PROPERTY by ID
